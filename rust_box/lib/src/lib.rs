@@ -4,8 +4,6 @@ use quote::quote;
 use syn::{parse_macro_input, ItemFn};
 
 
-
-
 #[proc_macro_attribute]
 pub fn main_macro(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
