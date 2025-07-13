@@ -1,0 +1,9 @@
+[package]
+name = "wasmbox"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+wasmi = "0.47.0"
+wasmtime = "17.0"
+

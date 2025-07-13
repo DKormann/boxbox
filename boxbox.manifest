@@ -1,0 +1,33 @@
+
+liberate server and master, client and user
+
+objects of concern:
+  - computer
+  - user
+  - data
+  - compute
+
+assume
+  - every computer `has` an url
+  - every user `has` credit
+  - compute costs credit
+  - user knows key
+
+boxbox
+
+  - account
+    - id/key
+    - credit
+
+  - store secret data
+  - publish data
+  - publish functions
+    - function is callable publicly
+    - receives caller id
+    - acts with full creator permissions
+    - code is visible
+
+  - call other peoples functions
+    - controlled pay for compute
+
+

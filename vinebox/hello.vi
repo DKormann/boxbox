@@ -1,0 +1,32 @@
+
+
+pub fn main(&io:&IO) {
+  let &io = ppp(&io);
+  let &io = ppp(&io);
+  let &io = ppp(&io);
+  let &io = ppp(&io);
+}
+
+
+pub fn ppp(&io:&IO) -> &IO{
+  let &io = pp(&io);
+  let &io = pp(&io);
+  let &io = pp(&io);
+  let &io = pp(&io);
+  &io
+}
+
+
+pub fn pp(&io:&IO) -> &IO{
+  let &io = p(&io);
+  let &io = p(&io);
+  let &io = p(&io);
+  let &io = p(&io);
+  &io
+}
+
+
+pub fn p(&io:&IO) -> &IO{
+  io.println("HELLO WORLD");
+  &io
+}

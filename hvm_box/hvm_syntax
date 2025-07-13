@@ -1,0 +1,17 @@
+
+
+
+term =
+  | var
+  | int
+  | string
+  | term term # application
+  | !var = term ; term # assignment
+  | λ var term # abstraction
+  | &{term term} # superposition
+  | !&{var var} = term ; term # dublication
+
+defintion = 
+  | @ name = term # function
+
+book = defintion*

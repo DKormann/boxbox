@@ -1,0 +1,1 @@
+Choice<(for<'a> fn(&'a str) -> Result<(&'a str, Term), nom::Err<nom::error::Error<&'a str>>> {abstraction},)>

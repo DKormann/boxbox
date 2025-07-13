@@ -1,0 +1,2 @@
+<impl Parser<&str, Output = <F as Parser<&str>>::Output, Error = <F as Parser<&str>>::Error> as Parser<&str>>::Output == O
+impl Parser<&'a str, Output = <F as Parser<&'a str>>::Output, Error = <F as Parser<&'a str>>::Error>

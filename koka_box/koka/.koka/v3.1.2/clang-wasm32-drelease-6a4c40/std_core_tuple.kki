@@ -1,0 +1,198 @@
+// Standard tuple functions.
+module interface std/core/tuple
+ 
+//------------------------------
+//#kki: import declarations
+ 
+import std/core/types = std/core/types = "";
+import std/core/hnd = std/core/hnd = "";
+ 
+//------------------------------
+//#kki: external imports
+ 
+ 
+//------------------------------
+//#kki: fixity declarations
+ 
+ 
+//------------------------------
+//#kki: local imported aliases
+ 
+ 
+//------------------------------
+//#kki: type declarations
+ 
+ 
+//------------------------------
+//#kki: declarations
+ 
+// monadic lift
+ fun tuple2/@mlift-map@10129[1,0,1,0] : forall<a,(e :: E)> (@y-x10100 : a, @y-x10101 : a) -> (e :: E) (a, a);
+// monadic lift
+ fun tuple2/@mlift-map@10130[1,0,1,0] : forall<a,b,(e :: E)> (f : (a) -> (e :: E) b, t : (a, a), @y-x10100 : b) -> (e :: E) (b, b);
+// Map a function over a tuple of elements of the same type.
+pub  fun tuple2/map[16,9,16,18] : forall<a,b,(e :: E)> (t : (a, a), f : (a) -> (e :: E) b) -> (e :: E) (b, b);
+// monadic lift
+ fun tuple3/@mlift-map@10131[1,0,1,0] : forall<a,(e :: E)> (@y-x10102 : a, @y-x10103 : a, @y-x10104 : a) -> (e :: E) (a, a, a);
+// monadic lift
+ fun tuple3/@mlift-map@10132[1,0,1,0] : forall<a,b,(e :: E)> (@y-x10102 : b, f : (a) -> (e :: E) b, t : (a, a, a), @y-x10103 : b) -> (e :: E) (b, b, b);
+// monadic lift
+ fun tuple3/@mlift-map@10133[1,0,1,0] : forall<a,b,(e :: E)> (f : (a) -> (e :: E) b, t : (a, a, a), @y-x10102 : b) -> (e :: E) (b, b, b);
+// Map a function over a triple of elements of the same type.
+pub  fun tuple3/map[20,9,20,18] : forall<a,b,(e :: E)> (t : (a, a, a), f : (a) -> (e :: E) b) -> (e :: E) (b, b, b);
+// monadic lift
+ fun tuple4/@mlift-map@10134[1,0,1,0] : forall<a,(e :: E)> (@y-x10105 : a, @y-x10106 : a, @y-x10107 : a, @y-x10108 : a) -> (e :: E) (a, a, a, a);
+// monadic lift
+ fun tuple4/@mlift-map@10135[1,0,1,0] : forall<a,b,(e :: E)> (@y-x10105 : b, @y-x10106 : b, f : (a) -> (e :: E) b, t : (a, a, a, a), @y-x10107 : b) -> (e :: E) (b, b, b, b);
+// monadic lift
+ fun tuple4/@mlift-map@10136[1,0,1,0] : forall<a,b,(e :: E)> (@y-x10105 : b, f : (a) -> (e :: E) b, t : (a, a, a, a), @y-x10106 : b) -> (e :: E) (b, b, b, b);
+// monadic lift
+ fun tuple4/@mlift-map@10137[1,0,1,0] : forall<a,b,(e :: E)> (f : (a) -> (e :: E) b, t : (a, a, a, a), @y-x10105 : b) -> (e :: E) (b, b, b, b);
+// Map a function over a quadruple of elements of the same type.
+pub  fun tuple4/map[24,9,24,18] : forall<a,b,(e :: E)> (t : (a, a, a, a), f : (a) -> (e :: E) b) -> (e :: E) (b, b, b, b);
+// Element-wise tuple equality
+pub  fun tuple2/(==)[29,9,29,19] : forall<a,b> (@pat-x29_22 : (a, b), @pat-x29_39 : (a, b), ?fst/(==) : (a, a) -> std/core/types/bool, ?snd/(==) : (b, b) -> std/core/types/bool) -> std/core/types/bool;
+// Element-wise triple equality
+pub  fun tuple3/(==)[33,9,33,19] : forall<a,b,c> (@pat-x33_22 : (a, b, c), @pat-x33_44 : (a, b, c), ?fst/(==) : (a, a) -> std/core/types/bool, ?snd/(==) : (b, b) -> std/core/types/bool, ?thd/(==) : (c, c) -> std/core/types/bool) -> std/core/types/bool;
+// Order on tuples
+pub  fun tuple2/cmp[38,9,38,18] : forall<a,b> (@pat-x38_21 : (a, b), @pat-x38_38 : (a, b), ?fst/cmp : (a, a) -> std/core/types/order, ?snd/cmp : (b, b) -> std/core/types/order) -> std/core/types/order;
+// Order on triples
+pub  fbip fun tuple3/cmp[44,14,44,23] : forall<a,b,c> (@pat-x44_26 : (a, b, c), @pat-x44_48 : (a, b, c), ^ ?fst/cmp : (a, a) -> std/core/types/order, ^ ?snd/cmp : (b, b) -> std/core/types/order, ^ ?thd/cmp : (c, c) -> std/core/types/order) -> std/core/types/order;
+// Convert a unit value `()` to a string
+pub  fun unit/show[53,9,53,17] : (u : ()) -> std/core/types/string;
+// monadic lift
+ fun tuple2/@mlift-show@10138[1,0,1,0] : forall<(e :: E)> (@y-x10109 : std/core/types/string, @y-x10110 : std/core/types/string) -> (e :: E) std/core/types/string;
+// monadic lift
+ fun tuple2/@mlift-show@10139[1,0,1,0] : forall<a,b,(e :: E)> (x : (a, b), ?snd/show : (b) -> (e :: E) std/core/types/string, @y-x10109 : std/core/types/string) -> (e :: E) std/core/types/string;
+// Show a tuple
+pub  fun tuple2/show[57,9,57,19] : forall<a,b,(e :: E)> (x : (a, b), ?fst/show : (a) -> (e :: E) std/core/types/string, ?snd/show : (b) -> (e :: E) std/core/types/string) -> (e :: E) std/core/types/string;
+// monadic lift
+ fun tuple3/@mlift-show@10140[1,0,1,0] : forall<(e :: E)> (@y-x10111 : std/core/types/string, @y-x10112 : std/core/types/string, @y-x10113 : std/core/types/string) -> (e :: E) std/core/types/string;
+// monadic lift
+ fun tuple3/@mlift-show@10141[1,0,1,0] : forall<a,b,c,(e :: E)> (@y-x10111 : std/core/types/string, x : (a, b, c), ?thd/show : (c) -> (e :: E) std/core/types/string, @y-x10112 : std/core/types/string) -> (e :: E) std/core/types/string;
+// monadic lift
+ fun tuple3/@mlift-show@10142[1,0,1,0] : forall<a,b,c,(e :: E)> (x : (a, b, c), ?snd/show : (b) -> (e :: E) std/core/types/string, ?thd/show : (c) -> (e :: E) std/core/types/string, @y-x10111 : std/core/types/string) -> (e :: E) std/core/types/string;
+// Show a triple
+pub  fun tuple3/show[61,9,61,19] : forall<a,b,c,(e :: E)> (x : (a, b, c), ?fst/show : (a) -> (e :: E) std/core/types/string, ?snd/show : (b) -> (e :: E) std/core/types/string, ?thd/show : (c) -> (e :: E) std/core/types/string) -> (e :: E) std/core/types/string;
+// _deprecated_, use `tuple2/show` instead
+pub  fun show-tuple[65,9,65,18] : forall<a,b,(e :: E)> (x : (a, b), showfst : (a) -> (e :: E) std/core/types/string, showsnd : (b) -> (e :: E) std/core/types/string) -> (e :: E) std/core/types/string;
+ 
+//------------------------------
+//#kki: external declarations
+ 
+ 
+//------------------------------
+//#kki: inline definitions
+ 
+//.inline-section
+ fun tuple2/map // inline size: 7
+  = forall<a,b,(e :: E)> fn<(e :: E)>(t: (a, a), f: (a) -> (e :: E) b){
+    std/core/types/Tuple2<b,b>((f((std/core/types/@open<(std/core/types/total :: E),(e :: E),(tuple2 : (a, a)) -> a,(tuple2 : (a, a)) -> (e :: E) a>((fn(tuple2: (a, a)){
+        (match (tuple2) {
+          ((@skip std/core/types/Tuple2((@x: a) : a, (@pat@0: a) : a) : (a, a) ) as @pat: (a, a))
+             -> @x;
+        });
+      }))(t)))), (f((std/core/types/@open<(std/core/types/total :: E),(e :: E),(tuple2 : (a, a)) -> a,(tuple2 : (a, a)) -> (e :: E) a>((fn(tuple2@0: (a, a)){
+        (match (tuple2@0) {
+          ((@skip std/core/types/Tuple2((@pat@0@0: a) : a, (@x@0: a) : a) : (a, a) ) as @pat@1: (a, a))
+             -> @x@0;
+        });
+      }))(t)))));
+  };
+ fun tuple3/map // inline size: 10
+  = forall<a,b,(e :: E)> fn<(e :: E)>(t: (a, a, a), f: (a) -> (e :: E) b){
+    std/core/types/Tuple3<b,b,b>((f((std/core/types/@open<(std/core/types/total :: E),(e :: E),(tuple3 : (a, a, a)) -> a,(tuple3 : (a, a, a)) -> (e :: E) a>((fn(tuple3: (a, a, a)){
+        (match (tuple3) {
+          ((@skip std/core/types/Tuple3((@x: a) : a, (@pat@0: a) : a, (@pat@1: a) : a) : (a, a, a) ) as @pat: (a, a, a))
+             -> @x;
+        });
+      }))(t)))), (f((std/core/types/@open<(std/core/types/total :: E),(e :: E),(tuple3 : (a, a, a)) -> a,(tuple3 : (a, a, a)) -> (e :: E) a>((fn(tuple3@0: (a, a, a)){
+        (match (tuple3@0) {
+          ((@skip std/core/types/Tuple3((@pat@0@0: a) : a, (@x@0: a) : a, (@pat@1@0: a) : a) : (a, a, a) ) as @pat@2: (a, a, a))
+             -> @x@0;
+        });
+      }))(t)))), (f((std/core/types/@open<(std/core/types/total :: E),(e :: E),(tuple3 : (a, a, a)) -> a,(tuple3 : (a, a, a)) -> (e :: E) a>((fn(tuple3@1: (a, a, a)){
+        (match (tuple3@1) {
+          ((@skip std/core/types/Tuple3((@pat@0@1: a) : a, (@pat@1@1: a) : a, (@x@1: a) : a) : (a, a, a) ) as @pat@3: (a, a, a))
+             -> @x@1;
+        });
+      }))(t)))));
+  };
+ fun tuple2/(==) // inline size: 3
+  = forall<a,b> fn(@pat-x29_22: (a, b), @pat-x29_39: (a, b), @implicit/fst/(==): (a, a) -> std/core/types/bool, @implicit/snd/(==): (b, b) -> std/core/types/bool){
+    (match (@pat-x29_22) {
+      ((@skip std/core/types/Tuple2((x1: a) : a, (y1: b) : b) : (a, b) ) as @pat: (a, b))
+         -> (match (@pat-x29_39) {
+          ((@skip std/core/types/Tuple2((x2: a) : a, (y2: b) : b) : (a, b) ) as @pat@0: (a, b))
+             -> (match ((@implicit/fst/(==)(x1, x2))) {
+              ((std/core/types/True() : std/core/types/bool ) as @pat@1: std/core/types/bool)
+                 -> @implicit/snd/(==)(y1, y2);
+              (@pat@2: std/core/types/bool)
+                 -> std/core/types/False;
+            });
+        });
+    });
+  };
+ fun tuple3/(==) // inline size: 5
+  = forall<a,b,c> fn(@pat-x33_22: (a, b, c), @pat-x33_44: (a, b, c), @implicit/fst/(==): (a, a) -> std/core/types/bool, @implicit/snd/(==): (b, b) -> std/core/types/bool, @implicit/thd/(==): (c, c) -> std/core/types/bool){
+    (match (@pat-x33_22) {
+      ((@skip std/core/types/Tuple3((x1: a) : a, (y1: b) : b, (z1: c) : c) : (a, b, c) ) as @pat: (a, b, c))
+         -> (match (@pat-x33_44) {
+          ((@skip std/core/types/Tuple3((x2: a) : a, (y2: b) : b, (z2: c) : c) : (a, b, c) ) as @pat@0: (a, b, c))
+             -> (match ((@implicit/fst/(==)(x1, x2))) {
+              ((std/core/types/True() : std/core/types/bool ) as @pat@1: std/core/types/bool)
+                 -> (match ((@implicit/snd/(==)(y1, y2))) {
+                  ((std/core/types/True() : std/core/types/bool ) as @pat@2: std/core/types/bool)
+                     -> @implicit/thd/(==)(z1, z2);
+                  (@pat@3: std/core/types/bool)
+                     -> std/core/types/False;
+                });
+              (@pat@4: std/core/types/bool)
+                 -> std/core/types/False;
+            });
+        });
+    });
+  };
+ fun tuple2/cmp // inline size: 3
+  = forall<a,b> fn(@pat-x38_21: (a, b), @pat-x38_38: (a, b), @implicit/fst/cmp: (a, a) -> std/core/types/order, @implicit/snd/cmp: (b, b) -> std/core/types/order){
+    (match (@pat-x38_21) {
+      ((@skip std/core/types/Tuple2((x1: a) : a, (y1: b) : b) : (a, b) ) as @pat: (a, b))
+         -> (match (@pat-x38_38) {
+          ((@skip std/core/types/Tuple2((x2: a) : a, (y2: b) : b) : (a, b) ) as @pat@0: (a, b))
+             -> (match ((@implicit/fst/cmp(x1, x2))) {
+              ((std/core/types/Eq() : std/core/types/order ) as @pat@1: std/core/types/order)
+                 -> @implicit/snd/cmp(y1, y2);
+              (lg: std/core/types/order)
+                 -> lg;
+            });
+        });
+    });
+  };
+borrow "__^^^"  fbip fun tuple3/cmp // inline size: 5
+  = forall<a,b,c> fn(@pat-x44_26: (a, b, c), @pat-x44_48: (a, b, c), @implicit/fst/cmp: (a, a) -> std/core/types/order, @implicit/snd/cmp: (b, b) -> std/core/types/order, @implicit/thd/cmp: (c, c) -> std/core/types/order){
+    (match (@pat-x44_26) {
+      ((@skip std/core/types/Tuple3((x1: a) : a, (y1: b) : b, (z1: c) : c) : (a, b, c) ) as @pat: (a, b, c))
+         -> (match (@pat-x44_48) {
+          ((@skip std/core/types/Tuple3((x2: a) : a, (y2: b) : b, (z2: c) : c) : (a, b, c) ) as @pat@0: (a, b, c))
+             -> (match ((@implicit/fst/cmp(x1, x2))) {
+              ((std/core/types/Eq() : std/core/types/order ) as @pat@1: std/core/types/order)
+                 -> (match ((@implicit/snd/cmp(y1, y2))) {
+                  ((std/core/types/Eq() : std/core/types/order ) as @pat@2: std/core/types/order)
+                     -> @implicit/thd/cmp(z1, z2);
+                  (lg: std/core/types/order)
+                     -> lg;
+                });
+              (lg@0: std/core/types/order)
+                 -> lg@0;
+            });
+        });
+    });
+  };
+inline  fun unit/show // inline size: 0
+  = fn(u: ()){
+    "()";
+  };
+ fun show-tuple // inline size: 1
+  = forall<a,b,(e :: E)> fn<(e :: E)>(x: (a, b), showfst: (a) -> (e :: E) std/core/types/string, showsnd: (b) -> (e :: E) std/core/types/string){
+    std/core/tuple/#tuple2/show<a,b,(e :: E)>(x, showfst, showsnd);
+  };
