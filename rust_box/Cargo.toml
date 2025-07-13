@@ -1,0 +1,12 @@
+[package]
+name = "rust_box"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rust_box_lib = { path = "lib" }
+parser = { path = "parser" }
+
+[workspace]
+resolver = "2"
+members = ["parser", "lib"]
