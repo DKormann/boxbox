@@ -28,17 +28,17 @@ pub fn backend_macro(_attr: TokenStream, item: TokenStream) -> TokenStream {
   let fn_block = &input_fn.block;
   let fn_sig = &input_fn.sig;
 
-  if &input_fn.sig.ident != "backend"{
-    return TokenStream::from(quote!{
-      compile_error!("This function is not a backend function");
-    });
-  };
+  // if &input_fn.sig.ident != "backend"{
+  //   return TokenStream::from(quote!{
+  //     compile_error!("This function is not a backend function");
+  //   });
+  // };
 
-  if (&input_fn.sig).inputs.len() != 2 {
-    return TokenStream::from(quote!{
-      compile_error!("wrong arg number");
-    });
-  }
+  // if (&input_fn.sig).inputs.len() != 2 {
+  //   return TokenStream::from(quote!{
+  //     compile_error!("wrong arg number");
+  //   });
+  // }
 
   TokenStream::from(quote! {#fn_sig { (|| #fn_block)()}})
 }

@@ -6,6 +6,7 @@ edition = "2024"
 [dependencies]
 rust_box_lib = { path = "lib" }
 parser = { path = "parser" }
+serverlib = {path = "serverlib"}
 
 [workspace]
 resolver = "2"

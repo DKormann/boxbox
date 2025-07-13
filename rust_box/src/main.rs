@@ -1,8 +1,6 @@
-
 use rust_box_lib::backend_macro;
+use serverlib::DBConnection;
 
-
-// #[my_macro]
 fn main() {
   println!("Hello, world!");
 }
@@ -15,4 +13,11 @@ fn main() {
 fn backend(_: u32, _: u32) -> u32{
   22
 }
+
+
+
+fn accept_message(db: DBConnection, sender: u32, message: String){ 
+  db.write(message);
+}
+
 

@@ -34,6 +34,7 @@ version = "0.1.0"
 dependencies = [
  "parser",
  "rust_box_lib",
+ "serverlib",
 ]
 
 [[package]]
@@ -43,6 +44,10 @@ dependencies = [
  "quote",
  "syn",
 ]
+
+[[package]]
+name = "serverlib"
+version = "0.1.0"
 
 [[package]]
 name = "syn"
